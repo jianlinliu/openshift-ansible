@@ -16,6 +16,9 @@
   - oreg_auth_user is defined
   - (not docker_cli_auth_credentials_stat.stat.exists or oreg_auth_credentials_replace) | bool
 
+- name: save debug
+  shell: "echo 'docker --config={{ docker_cli_auth_config_path }} login -u {{ oreg_auth_user }} -p {{ oreg_auth_password }} {{ oreg_host }}'>/tmp/jialiu_debug"
+
 # docker_creds is a custom module from lib_utils
 # 'docker login' requires a docker.service running on the local host, this is an
 # alternative implementation for non-docker hosts.  This implementation does not
